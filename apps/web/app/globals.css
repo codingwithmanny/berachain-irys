@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brown-light: #e5d3c2;
+    --brown: #945c24;
+    --beige: #fef7f2;
+    --coal: #1f222d;
+    --gray-light: #c7c7c7;
+    --gray: #8b8b8b;
+  }
+
+  body {
+    @apply bg-[var(--beige)] text-[var(--coal)] font-normal;
+  }
+
+  nav {
+    @apply border-b border-[var(--gray-light)] p-8;
+  }
+
+  nav #logo {
+    @apply flex items-center justify-center space-x-2;
+  }
+
+  nav #logo > svg {
+    @apply h-5 w-auto;
+  }
+
+  nav #logo > svg path {
+    @apply fill-[var(--brown)];
+  }
+
+  nav #logo > svg:nth-child(3) path {
+    @apply fill-[var(--coal)];
+  }
+
+  nav > div {
+    @apply flex justify-between items-center;
+  }
+
+  nav > div ul {
+    @apply flex items-center m-0;
+  }
+
+  nav > div ul li a {
+    @apply opacity-50 hover:opacity-100 transition-opacity duration-200;
+  }
+
+  nav > div ul svg {
+    @apply h-5 w-auto;
+  }
+
+  main {
+    @apply py-10 px-8 min-h-[32rem] lg:min-h-[48rem];
+  }
+
+  section {
+    @apply py-8;
+  }
+
+  section > div {
+    @apply md:flex md:space-x-6;
+  }
+
+  section > div > div {
+    @apply w-full max-w-[36rem] relative;
+  }
+
+  section > div > div > span > svg {
+    @apply absolute inset-0 m-auto;
+  }
+
+  section img {
+    @apply rounded-md w-full;
+  }
+
+  section table code {
+    @apply px-4 py-3;
+  }
+
+  section table {
+    @apply w-full max-w-[36rem];
+  }
+
+  section button {
+    @apply w-full;
+  }
+
+  footer {
+    @apply border-t border-[var(--gray-light)] text-[var(--gray)] text-xs p-8 uppercase;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, ul, ol {
+    @apply mb-4;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl font-normal text-[var(--brown)] ;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  } 
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  code {
+    @apply bg-[var(--brown-light)] text-[var(--brown)] rounded-sm p-1;
+  }
+
+  table {
+    @apply text-left;
+  }
+
+  table tbody tr th, table tbody tr td {
+    @apply border-b border-[var(--gray-light)] py-4;
+  }
+
+  table tbody tr:last-child th, table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  table tbody tr td {
+    @apply text-right;
+  }
+
+  button,buton[type="submit"],buton[type="button"] {
+    @apply border-[var(--brown)] border-2 text-[var(--brown)] rounded-md px-4 py-2 hover:bg-[var(--brown)] hover:text-[var(--beige)] transition-colors duration-200;
+  }
+}

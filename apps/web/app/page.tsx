@@ -18,7 +18,7 @@ export default function Page(): JSX.Element {
           <div>
             <ul>
               <li>
-                <a target="_blank" href="https://github.com/codingwithmanny/berachain-irys-dynamic-nft"><LogoGitHub /></a>
+                <a target="_blank" href="https://github.com/codingwithmanny/berachain-irys"><LogoGitHub /></a>
               </li>
             </ul>
           </div>

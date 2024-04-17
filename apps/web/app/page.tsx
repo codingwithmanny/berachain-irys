@@ -31,6 +31,7 @@ export default function Page(): JSX.Element {
           <p>This demonstrates using Irys Mutable References to create dynamic NFTs on Berachain. <br/>Each NFT changes over time based on how much <code>$bHoney</code> a user has accumulated.</p>
           <p>Start by connecting your wallet to mint or check your current NFT state.</p>
 
+          <p className="bg-gray-300/50 p-4"><small>How do I get <code>$bHoney</code>?<br/>Deposit <code>$Honey</code> into the <a href="https://artio.berps.berachain.com/vault" target="_blank">Berps Vault</a> in exchange for <code>$bHoney</code>.</small></p>
           <Connect />
           <NFT />
         </div>

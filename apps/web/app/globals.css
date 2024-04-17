@@ -16,6 +16,10 @@
     @apply bg-[var(--beige)] text-[var(--coal)] font-normal;
   }
 
+  a {
+    @apply text-[var(--brown)] underline;
+  }
+
   nav {
     @apply border-b border-[var(--gray-light)] p-8;
   }

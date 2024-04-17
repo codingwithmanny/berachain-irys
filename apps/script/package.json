@@ -1,0 +1,20 @@
+{
+  "name": "@berachain/script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "upload": "./node_modules/.bin/ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf node_modules"
+  },
+  "keywords": ["berachain", "irys", "nft", "bhoney"],
+  "author": "@codingwithmanny",
+  "license": "MIT",
+  "dependencies": {
+    "@irys/sdk": "^0.1.21",
+    "dotenv": "^16.4.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

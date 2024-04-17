@@ -1,28 +1,106 @@
-## Getting Started
+# Berachain Web BHoney NFT Minting App
 
-First, run the development server:
+An example UI and API that allows users to mint a soulbound NFT and allow it to dynamicly update based on how much `$bHoney` a user has.
+
+## Requirements
+
+- NodeJS `v20.11.0` or greater
+- Wallet With Berachain - (See [Berachain Faucet](https://artio.faucet.berachain.com))
+- Wallet With `$bHoney` - (See [Berachain Berps Vault](https://artio.berps.berachain.com/vault))
+- [WalletConnect Project ID](https://cloud.walletconnect.com)
+- Docker for local postgres database
+
+## Quick Start
+
+### 1 - Install Depdencies
 
 ```bash
-yarn dev
+# FROM: ./apps/web
+
+pnpm install;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2 - Add Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# FROM: ./apps/web
 
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
+cp .env.example .env;
+```
 
-## Learn More
+Replace this value
 
-To learn more about Next.js, take a look at the following resources:
+**File:** `./apps/script/.env`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
+```bash
+# Contracts and wallets"
+WALLET_PRIVATE_KEY="<0xYOUR_WALLET_PRIVATE_KEY>"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# ...
 
-## Deploy on Vercel
+# WalletConnect - Sign up here https://cloud.walletconnect.com
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID="<YOUR_WALLETCONNECT_PROJECT_ID>"
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
+### 3 - Start Docker Container
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+# FROM: ./apps/web
+
+pnpm db:up;
+
+# [Expected Output]:
+# [+] Running 1/2
+#  ⠙ Network nft_default  Created                                                                            0.2s 
+#  ✔ Container nft-db-1   Started    
+```
+
+### 4 - Generate Migration
+
+```bash
+# FROM: ./apps/web
+
+pnpm db:gen;
+
+# [Expected Output]:
+# drizzle-kit: v0.20.14
+# drizzle-orm: v0.30.7
+# 
+# No config path provided, using default 'drizzle.config.ts'
+# Reading config file '/Users/mannybera/Documents/github/berachain-irys/apps/web/drizzle.config.ts'
+# 1 tables
+# nft_holders 8 columns 0 indexes 0 fks
+# 
+# No schema changes, nothing to migrate 😴
+```
+
+### 5 - Push Migration
+
+```bash
+# FROM: ./apps/web
+
+pnpm db:push;
+
+# [Expected Output]:
+# drizzle-kit: v0.20.14
+# drizzle-orm: v0.30.7
+# 
+# No config path provided, using default path
+# Reading config file '/Users/mannybera/Documents/github/berachain-irys/apps/web/drizzle.config.ts'
+# [✓] Changes applied
+```
+
+### 6 - Run NextJS
+
+```bash
+# FROM: ./apps/web
+
+pnpm dev;
+
+# [Expected Output]:
+#    ▲ Next.js 14.1.1
+#    - Local:        http://localhost:3000
+#    - Environments: .env
+# 
+#  ✓ Ready in 1389ms
+```

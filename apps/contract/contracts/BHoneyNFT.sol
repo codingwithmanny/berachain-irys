@@ -17,9 +17,6 @@ contract BHoneyNFT is ERC721, ERC721URIStorage, Ownable {
     /// @dev 
     string private _baseURIPrefix = "";
 
-    /// @dev Default mutableRef Tx Uri before it's updated
-    string private _defaultTxUri = "";
-
     /// @dev to keep track of what the next tokenId to mint
     uint256 private _nextTokenId;
 
@@ -29,9 +26,8 @@ contract BHoneyNFT is ERC721, ERC721URIStorage, Ownable {
     // functions
     // ========================================================
     /// @dev Main constructor that sets the owner to the deployer
-    constructor(string memory baseURIPrefix_, string memory defaultTxUri_) ERC721("BHoneyNFT", "BHNFT") Ownable(msg.sender) {
+    constructor(string memory baseURIPrefix_) ERC721("BHoneyNFT", "BHNFT") Ownable(msg.sender) {
       _baseURIPrefix = baseURIPrefix_;
-      _defaultTxUri = defaultTxUri_;
     }
 
     // - external
@@ -40,7 +36,7 @@ contract BHoneyNFT is ERC721, ERC721URIStorage, Ownable {
         require(balanceOf(msg.sender) == 0, "You can only own 1 NFT.");
         uint256 tokenId = _nextTokenId++;
         _safeMint(msg.sender, tokenId);
-        _setTokenURI(tokenId, _defaultTxUri);
+        _setTokenURI(tokenId, "NOT_SET");
     }
 
     /// @dev Handles updating the tokenURI by the owner allow for tokenId urls to be dynamic

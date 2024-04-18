@@ -97,7 +97,7 @@ pnpm deploy:berachain;
 # 
 # Deployed Addresses
 # 
-# BHoneyNFTModule#BHoneyNFT - 0x0F11e434ebC194153f9C882a1e9be78Bde5ebf42
+# BHoneyNFTModule#BHoneyNFT - 0x9d7Ef808f88b1E7829AbC8DD2187C41Eb6005B8a
 ```
 
 ## Verify Contract
@@ -105,20 +105,20 @@ pnpm deploy:berachain;
 ```bash
 # FROM: ./apps/contract
 
-pnpm verify:berachain "0x0F11e434ebC194153f9C882a1e9be78Bde5ebf42" "https://gateway.irys.xyz/" "-36380APpMgU5PQVsE8uHuGubx5rv1ZxuLGJETvz0Ec";
+pnpm verify:berachain 0x9d7Ef808f88b1E7829AbC8DD2187C41Eb6005B8a "https://gateway.irys.xyz/mutable/"
 
 # [Expected Output]:
 # Successfully submitted source code for contract
-# contracts/BHoneyNFT.sol:BHoneyNFT at 0x0F11e434ebC194153f9C882a1e9be78Bde5ebf42
+# contracts/BHoneyNFT.sol:BHoneyNFT at 0x9d7Ef808f88b1E7829AbC8DD2187C41Eb6005B8a
 # for verification on the block explorer. Waiting for verification result...
 #
 # Successfully submitted source code for contract
-# contracts/BHoneyNFT.sol:BHoneyNFT at 0x0F11e434ebC194153f9C882a1e9be78Bde5ebf42
+# contracts/BHoneyNFT.sol:BHoneyNFT at 0x9d7Ef808f88b1E7829AbC8DD2187C41Eb6005B8a
 # for verification on the block explorer. Waiting for verification result...
 # 
 # Successfully verified contract BHoneyNFT on the block explorer.
-# https://artio.beratrail.io/address/0x0F11e434ebC194153f9C882a1e9be78Bde5ebf42#code
-# !!! NOTE: Should be: https://artio.beratrail.io/address/0x0F11e434ebC194153f9C882a1e9be78Bde5ebf42/contract/80085/code
+# https://artio.beratrail.io/address/0x9d7Ef808f88b1E7829AbC8DD2187C41Eb6005B8a#code
+# !!! NOTE: Should be: https://artio.beratrail.io/address/0x9d7Ef808f88b1E7829AbC8DD2187C41Eb6005B8a/contract/80085/code
 ```
 
 ## Run Tests

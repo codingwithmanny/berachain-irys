@@ -102,13 +102,15 @@ export const PUT = async (_request: Request, { params }: { params: { nftId: stri
     if (!mutableRefJSON.image.endsWith(`${mutableRefImageUrl.IMGURL}`)) {
       console.log({ mutableRefImageUrl });
       // 4a. Update Irys
+      console.log('uploading...');
+      console.log({ nftHolder });
       await irys.upload(JSON.stringify({
         name: `BHoneyNFT #${nftId}`,
         symbol: "BHNFT",
         description: "The magic unfolds when a bear and llama do what's untold",
         image: `https://gateway.irys.xyz/${mutableRefImageUrl.IMGURL}`,
       }), { tags: [{ name: "Content-Type", value: "application/json" }, { name: "Root-TX", value: nftHolder.mutablelUrl }] });
-
+      console.log('done...');
       // 4b. Update database
       await QUERY_HOLDERS.UPDATE(
         nftHolder.id,

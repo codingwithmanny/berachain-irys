@@ -2,12 +2,6 @@
 
 // Imports
 // ========================================================
-import {
-  useConnectModal,
-  useAccountModal,
-  useChainModal,
-} from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
 import { FigetSpinner } from "../Icons";
 
 // Components

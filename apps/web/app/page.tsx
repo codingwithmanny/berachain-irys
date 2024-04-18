@@ -1,6 +1,5 @@
 // Imports
 // ========================================================
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Connect from "../components/Connect";
 import { LogoBerachain, LogoGitHub, LogoIrys } from "../components/Icons";
 import NFT from "../components/NFT";

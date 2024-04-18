@@ -3,7 +3,7 @@
 // Imports
 // ========================================================
 import { useEffect, useState } from "react";
-import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
+import { useAccount, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import Loader from "../Loader";
 import abi from "../../utils/abi";
 import NFTImage from "../NFTImage";
@@ -130,7 +130,7 @@ export default function NFT() {
     try {
       const hashResponse = await bHoneyNFTContractWrite({
         abi,
-        address: `${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}` as `0x${string}`,
+        address: `${process.env.NEXT_PUBLIC_BHONEYNFT_CONTRACT_ADDRESS}` as `0x${string}`,
         functionName: 'mint'
       });
 
@@ -191,6 +191,7 @@ export default function NFT() {
         ) : (
           <div>
             <div>
+              {/* {JSON.stringify({ nftData })} */}
               <NFTImage isLoading={isLoading} tokenId={nftData?.nftId} />
             </div>
             <table>

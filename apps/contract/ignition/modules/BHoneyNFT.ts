@@ -11,7 +11,7 @@ config();
 // ========================================================
 const BHoneyNFTModule = buildModule("BHoneyNFTModule", (m) => {
   // Deploy contract
-  const contract = m.contract("BHoneyNFT", [`${process.env.CONTRACT_BASE_URL}`, `${process.env.CONTRACT_DEFAULT_TX_ID}`]);
+  const contract = m.contract("BHoneyNFT", [`${process.env.CONTRACT_BASE_URL}`]);
 
   return { contract };
 });

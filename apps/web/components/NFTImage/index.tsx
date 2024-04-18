@@ -20,7 +20,7 @@ export default function NFTImage({ isLoading = true, tokenId = -1 }) {
    */
   const bHoneyNFTTokenURI = useReadContract({
     abi,
-    address: `${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}` as `0x${string}`,
+    address: `${process.env.NEXT_PUBLIC_BHONEYNFT_CONTRACT_ADDRESS}` as `0x${string}`,
     functionName: 'tokenURI',
     args: [tokenId],
     query: {
@@ -34,21 +34,22 @@ export default function NFTImage({ isLoading = true, tokenId = -1 }) {
   const readTokenURI = useQuery({
     queryKey: ['readTokenURI'],
     queryFn: async () => {
-      const response = await fetch(`${bHoneyNFTTokenURI?.data}`, {
+      const response = await fetch(`/api/img/${(bHoneyNFTTokenURI?.data ?? '').replace('https://gateway.irys.xyz/mutable/', '')}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
       });
       const json = await response.json();
-      if (!response.ok || !json?.image) {
+      if (!response.ok || !json?.data?.image) {
+
         throw Error('Could not retrieve nft image.');
       }
-      console.log({ json });
-      setImgUrl(json?.image);
+      setImgUrl(json?.data?.image);
       return json;
     },
     enabled: !bHoneyNFTTokenURI.isLoading && bHoneyNFTTokenURI?.data ? true : false,
+    retry: false
   });
 
   /**

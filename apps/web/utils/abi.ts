@@ -5,11 +5,6 @@ export default [
         "internalType": "string",
         "name": "baseURIPrefix_",
         "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "defaultTxUri_",
-        "type": "string"
       }
     ],
     "stateMutability": "nonpayable",

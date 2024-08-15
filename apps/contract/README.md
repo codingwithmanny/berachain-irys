@@ -5,11 +5,11 @@ Main BHoneyNFT contract that is an ERC721.
 ## Requirements
 
 - NodeJS `v20.11.0` or greater
-- Wallet With Berachain - (See [Berachain Faucet](https://artio.faucet.berachain.com))
+- Wallet With bArtrio Berachain - (See [Berachain Faucet](https://bartio.faucet.berachain.com/))
 
 ## Quick Start
 
-### 1 - Install Depdencies
+### 1 - Install Dependencies
 
 ```bash
 # FROM: ./apps/contract
